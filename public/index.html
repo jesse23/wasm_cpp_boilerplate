@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head lang='en'>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <title>Playground</title>
+
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Example</h1>
+    <index id="entry-dom-element"></index>
+    <script src="example.js"></script>
+    <script type="text/javascript">
+        function onExampleLoad() {
+            var x = 12.5;
+            var elem = document.getElementById('entry-dom-element');
+            elem.innerHTML = "<code>" + 'Computing: ' + x + ' * ' + x + ' = ' + window.squareVal(x) + "</code>";
+        }
+        window.setTimeout(onExampleLoad, 1000);
+    </script>
+
+</body>
+
+</html>

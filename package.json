@@ -1,0 +1,33 @@
+{
+    "name": "wasm_cpp_boilerplate",
+    "version": "1.0.0",
+    "description": "WASM C++ boiler plate",
+    "main": "public/example.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jesse23/wasm_cpp_boilerplate.git"
+    },
+    "keywords": [
+        "WASM",
+        "C++",
+        "boilerplate"
+    ],
+    "author": "jesse23",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jesse23/wasm_cpp_boilerplate/issues"
+    },
+    "homepage": "https://github.com/jesse23/wasm_cpp_boilerplate#readme",
+    "scripts": {
+        "test": "jasmine test/*.test.js",
+        "clean": "rm public/example public/example.js public/example.wasm",
+        "js-build": "emcc src/*.cxx src/utils/*.cxx -o public/example.js -I./src -s EXPORTED_FUNCTIONS=\"['_squareVal', '_main']\" -s EXTRA_EXPORTED_RUNTIME_METHODS=\"['ccall', 'cwrap']\"",
+        "cpp-build": "g++ src/*.cxx src/utils/*.cxx -o public/example -I./src",
+        "build": "npm run js-build && npm run cpp-build",
+        "start": "serve public -l 8080"
+    },
+    "devDependencies": {
+        "jasmine": "^3.5.0",
+        "serve": "^11.3.0"
+    }
+}
