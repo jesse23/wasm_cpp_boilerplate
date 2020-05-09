@@ -1,3 +1,5 @@
+![build](https://github.com/jesse23/wasm_cpp_boilerplate/workflows/build/badge.svg)
+
 # WASM C++ Boilerplate
 
 Boiler plate for WASM C++, created at 20200509
