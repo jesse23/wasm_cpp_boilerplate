@@ -12,7 +12,8 @@ on:
 jobs:
   build:
 
-    runs-on: trzeci/emscripten
+    runs-on: ubuntu-latest
+    container: trzeci/emscripten
 
     strategy:
       matrix:
