@@ -1,9 +1,15 @@
 const Module = require( '../public/example.js' );
+const promise = new Promise( resolve => {
+    Module.onRuntimeInitialized = resolve;
+} )
 
 describe( 'Test WASM example', () => {
     var squareVal;
 
-    beforeEach( () => squareVal = Module.cwrap( 'squareVal', 'number', [ 'number' ] ) );
+    beforeEach( async () => {
+        await promise;
+        squareVal = Module.cwrap( 'squareVal', 'number', [ 'number' ] )
+    } );
 
     it( 'Verify squareVal(12.5) === 156.25', () => {
         expect( squareVal( 12.5 ) ).toEqual( 156.25 );
